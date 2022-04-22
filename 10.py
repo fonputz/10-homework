@@ -6,25 +6,43 @@ def tochp (a):
     #якщоце пробіл то ми його не змінюємо і повертаємо користувачу
     return ' '
   else:
-    #Дізнаємось номер букви за абеткою, яку ми шифруємо
-    c_index= ord(a) - ord('a')
-    #Дізнамось номер букви який має бути при шифруванні
-    new_index = (c_index+index)%26
-    #Дізнаємось індекс букви в системі
-    new_chr = new_index + ord('a')
-    #повертає зашифровану букву
-    return chr(new_chr)
+    #
+    if a.isupper():
+      #Дізнаємось номер букви за абеткою, яку ми шифруємо
+      c_index= ord(a) - ord('A')
+      #Дізнамось номер букви який має бути при шифруванні
+      new_index = (c_index+index)%26
+      #Дізнаємось індекс букви в системі
+      new_chr = new_index + ord('A')
+      #повертає зашифровану букву
+      return chr(new_chr)
+    elif a.islower():
+      #Дізнаємось номер букви за абеткою, яку ми шифруємо
+      c_index= ord(a) - ord('a')
+      #Дізнамось номер букви який має бути при шифруванні
+      new_index = (c_index+index)%26
+      #Дізнаємось індекс букви в системі
+      new_chr = new_index + ord('a')
+      #повертає зашифровану букву
+      return chr(new_chr)
 
 #функція для розшифрування
 def frchp (a):
   if a == ' ':
     return ' '
   else:
-    c_index= ord(a) - ord('a')
-    new_index = (c_index-index)%26
-    new_chr = new_index + ord('a')
+    if a.isupper():
+      c_index= ord(a) - ord('A')
+      new_index = (c_index-index)%26
+      new_chr = new_index + ord('A')
+    #повертає зашифровану букву
+      return chr(new_chr)
+    elif a.islower():
+      c_index= ord(a) - ord('a')
+      new_index = (c_index-index)%26
+      new_chr = new_index + ord('a')
   #повертає зашифровану букву
-    return chr(new_chr)
+      return chr(new_chr)
 
 c = ''
 c1 = ''
